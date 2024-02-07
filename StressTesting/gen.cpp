@@ -1,24 +1,4 @@
-// #include <bits/stdc++.h>
-// using namespace std;
-
-// mt19937 rng(chrono::steady_clock::now().time_since_epoch().count());
-
-// int randomNumber(int a, int b) {
-//     if (a > b)
-//         swap(a, b);
-//     return a + rng() % (b - a + 1);
-// }
-
-// int main(int argc, char *argv[]) {
-//     // srand(atoi(argv[1]));
-//     int n = randomNumber(3, 200000);
-//     int k = randomNumber(1, n);
-//     cout << n << " " << k << endl;
-//     for(int i = 0; i < n; i++)
-//         cout << randomNumber(1, 1000000000) << " ";
-//     cout << n << endl;
-//     return 0;
-// }
+// Last Modified on: 21/08/21
 
 #include <bits/stdc++.h>
 using namespace std;
@@ -125,10 +105,11 @@ const int max_tests = 10;
 
 // complete this function according to the requirements
 void generate_test() {
-    int n = rand(1, 10000);
+    int n = rand(1, 50);
     int k = rand(1, n);
-    cout << n << '\n';
-    cout << gen_array(n, 1, 1000000);
+    // cout << n << '\n';
+    cout << gen_string(n) << '\n';
+    cout << gen_string(k) << '\n';
 }
 
 signed main() {
