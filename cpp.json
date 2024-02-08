@@ -53,6 +53,14 @@
         ],
         "description": "Log output to console"
     },
+    "File Input Output": {
+        "prefix": "fileIO",
+        "body": [
+            "freopen(\"input.txt\", \"r\", stdin);"
+            "freopen(\"output.txt\", \"w\", stdout);"
+        ],
+        "description": "Log output to console"
+    },
     "Dfs code":{
         "prefix": "dfs_code",
         "body":[
