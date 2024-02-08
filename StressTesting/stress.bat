@@ -72,6 +72,10 @@ if defined diff_found (
 del input.in
 del output.out
 del output2.out
+del gen.exe
+del solution.exe
+del brute.exe
+del diagnostics
 exit /b
 
 :echoGreen
