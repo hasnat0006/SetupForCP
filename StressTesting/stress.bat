@@ -1,15 +1,20 @@
 @echo off
 
+@REM if you don't need any color in your terminal, you just comment out the call :_________ lines and uncomment the echo lines.
+
+
 rem Define ANSI escape sequences for color
 set "ESC="
 
 rem Define color codes
-set "GREEN=%ESC%[92m"  rem Green color
-set "RED=%ESC%[91m"    rem Red color
-set "MAGENTA=%ESC%[95m"    rem Magenta color
-set "YELLOW=%ESC%[93m"    rem Yellow color
-set "BLUE=%ESC%[94m"    rem Blue color
-set "CYAN=%ESC%[96m"    rem Cyan color
+set "GREEN=%ESC%[38;2;0;230;0m"        rem Green color
+set "RED=%ESC%[38;2;255;0;0m"          rem Red color
+set "MAGENTA=%ESC%[38;2;170;0;140m"    rem Magenta color
+set "YELLOW=%ESC%[38;2;210;240;0m"     rem Yellow color
+set "BLUE=%ESC%[38;2;0;10;250m"        rem Blue color
+set "CYAN=%ESC%[38;2;0;160;160m"       rem Cyan color
+set "BOLD=%ESC%[1m"                    rem Bold
+set "UNDERLINE=%ESC%[4m"               rem Underline
 set "RESET=%ESC%[0m"
 
 if [%1]==[] (set /A numLoop = 100) else (set /A numLoop = %1)
@@ -29,7 +34,7 @@ if %doComp% equ 1 (
 set "diff_found="
 
 for /l %%x in (1, 1, %numLoop%) do (
-    call :echoGreen TestCase %%x passed!
+    call :echoBoldDeepGreen [ TestCase %%x: passed! ]
     @REM echo TestCase %%x passed!
     gen > input.in
     solution < input.in > output.out 
@@ -47,25 +52,32 @@ for /l %%x in (1, 1, %numLoop%) do (
 
 if defined diff_found (
     echo.
-    call :echoRed Mismatched!
-    @REM echo Mismatched!
-    call :echoMagenta Input: 
+    call :echoRed [   Wrong answer:(   ]
+    @REM echo Wrong answer:(
+    echo.
+    call :echoBoldUnderlineCyan Input: 
     @REM echo Input:
-    type input.in
+    echo.
+    call :echoMagentaFromFile input.in
+    @REM type input.in
     echo.
 
-    call :echoMagenta Output:
+    call :echoBoldUnderlineCyan Your output:
     @REM echo Output:
-    type output.out
+    echo.
+    call :echoMagentaFromFile output.out
+    @REM type output.out
     echo.
 
-    call :echoMagenta Expected:
+    call :echoBoldUnderlineCyan Expected output:
     @REM echo Expected:
-    type output2.out
+    echo.
+    call :echoMagentaFromFile output2.out
+    @REM type output2.out
     echo.
 ) else (
     echo.
-    call :echoYellow All testCases passed :D
+    call :echoBoldDeepGreen All testcases passed :D
     @REM echo All testCases passed :D
 )
 
@@ -83,14 +95,26 @@ echo off
 cmd /c "echo %GREEN%%*%RESET%"
 exit /b
 
+:echoBoldDeepGreen
+echo off
+cmd /c "echo %GREEN%%BOLD%%*%RESET%"
+exit /b
+
 :echoRed
 echo off
 cmd /c "echo %RED%%*%RESET%"
 exit /b
 
+
 :echoMagenta
 echo off
 cmd /c "echo %MAGENTA%%*%RESET%"
+exit /b
+
+:echoBoldUnderlineDeepMagenta
+echo off
+cmd /c "echo %MAGENTA%%BOLD%%UNDERLINE%%*%RESET%"
+
 exit /b
 
 :echoYellow
@@ -106,5 +130,26 @@ exit /b
 :echoCyan
 echo off
 cmd /c "echo %CYAN%%*%RESET%"
+exit /b
+
+:echoRedFromFile
+echo off
+setlocal enabledelayedexpansion
+for /f "tokens=*" %%a in (%1) do (
+    echo %RED%%%a%RESET%
+)
+exit /b
+
+:echoMagentaFromFile
+echo off
+setlocal enabledelayedexpansion
+for /f "tokens=*" %%a in (%1) do (
+    echo %MAGENTA%%%a%RESET%
+)
+exit /b
+
+:echoBoldUnderlineCyan
+echo off
+cmd /c "echo %CYAN%%BOLD%%UNDERLINE%%*%RESET%"
 exit /b
 ```
