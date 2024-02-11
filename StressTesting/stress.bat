@@ -1,6 +1,6 @@
 @echo off
 
-@REM if you don't need any color in your terminal, you just comment out the call :_________ lines and uncomment the echo lines.
+@REM if you don't need any color in your terminal, you just comment out the call :echo___ lines and uncomment the echo lines.
 
 
 rem Define ANSI escape sequences for color
@@ -9,7 +9,7 @@ set "ESC="
 rem Define color codes
 set "GREEN=%ESC%[38;2;0;230;0m"        rem Green color
 set "RED=%ESC%[38;2;255;0;0m"          rem Red color
-set "MAGENTA=%ESC%[38;2;170;0;140m"    rem Magenta color
+set "MAGENTA=%ESC%[38;2;190;0;240m"    rem Magenta color
 set "YELLOW=%ESC%[38;2;210;240;0m"     rem Yellow color
 set "BLUE=%ESC%[38;2;0;10;250m"        rem Blue color
 set "CYAN=%ESC%[38;2;0;160;160m"       rem Cyan color
