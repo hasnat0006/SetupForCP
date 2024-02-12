@@ -1,4 +1,5 @@
 {
+    // --------------------------Tempate Snippets Start----------------------- //
     "starting template": {
         "prefix": "cpp",
         "body": [
@@ -39,7 +40,7 @@
             "\treturn 0;",
             "}",
         ],
-        "description": "Log output to console"
+        "description": "starting template"
     },
     "debug": {
         "prefix": "debug",
@@ -51,7 +52,7 @@
             "#define dbgc(x...)",
             "#endif",
         ],
-        "description": "Log output to console"
+        "description": "debug template"
     },
     "File Input Output": {
         "prefix": "fileIO",
@@ -59,60 +60,7 @@
             "freopen(\"input.txt\", \"r\", stdin);"
             "freopen(\"output.txt\", \"w\", stdout);"
         ],
-        "description": "Log output to console"
-    },
-    "Dfs code":{
-        "prefix": "dfs_code",
-        "body":[
-        "map<int,vector<int>> adj;",
-        "map<int,int>visited,parent,level,color;",
-        "",
-        "void dfs(int start)",
-        "{",
-        "\tvisited[start]=1;",
-        "\tfor (auto child : adj[start])",
-        "\t{",
-        "\t\tif (!visited[child])",
-        "\t\t{",
-        "\t\t\tdfs(child);",
-        "\t\t}",
-        "\t}",
-        "\tvisited[start]=2;",
-        "}",
-        "",
-        ],
-        "description": "dfs code"
-    },
-    "BFS code":{
-        "prefix": "bfs_code",
-        "body":[
-        "map<int,vector<int>> adj;",
-        "map<int,int>visited,parent,level,color;",
-        "",
-        "void bfs(int start)",
-        "{",
-        "\tqueue<int> q;",
-        "\tq.push(start);",
-        "\tvisited[start] = 1;",
-        "\twhile (!q.empty())",
-        "\t{",
-        "\t\tint k = q.front();",
-        "\t\tq.pop();",
-        "\t\tfor (auto child : adj[k])",
-        "\t\t{",
-        "\t\t\tif (!visited[child])",
-        "\t\t\t{",
-        "\t\t\t\tq.push(child);",
-        "\t\t\t\tvisited[child] = 1;",
-        "\t\t\t\tvisited[child] = 1;",
-        "\t\t\t\tlevel[child] = level[k] + 1;",
-        "\t\t\t}",
-        "\t\t}",
-        "\t}",
-        "}",
-        "",
-        ],
-        "description": "dfs code"
+        "description": "file input output"
     },
     "order set template":{
         "prefix": "order set template",
@@ -126,43 +74,265 @@
             "template <typename T> using o_multiset = tree<T, null_type, less_equal<T>, rb_tree_tag, tree_order_statistics_node_update>;"
             "template <typename T> using o_multiset_g = tree<T, null_type, greater_equal<T>, rb_tree_tag, tree_order_statistics_node_update>;"
         ],
-        "description": "order set template"
+        "description": "find_by_order and order_of_key"
     },
-    "Math": {
-        "prefix": "mathSnip",
-        "body": [
-            "// ================= MATH UTIL BEGINS ================= //",
-            "// ========== compute higher powers with mod ========== //",
-            "int power(int x, int y, int p = mod) {",
-            "    unsigned long long res = 1;",
-            "    x = x % p;",
-            "    while (y > 0) {",
-            "        if (y & 1)",
-            "             res = (res * x) % p;",
-            "        y = y >> 1;",
-            "        x = (x * x) % p;",
-            "    }",
-            "    return res;",
-            "}",
-            "// ====================================================== //",
-            "// ============= using fermats little theorm ============= //",
-            "int modInverse(int n, int p = mod)  { return power(n, p - 2, p); }",
-            "// ======== Used to calculate nCr of higher values ======= //",
-            "// faster calculation..",
-            "int nCr(int n, int r, int p = mod) {",
-            "    if (n < r)",
-            "        return 0;",
-            "    if (r == 0)",
-            "        return 1;",
-            "    vector<int> fac(n + 1, 0);",
-            "    fac[0] = 1;",
-            "    for (int i = 1; i <= n; i++)",
-            "        fac[i] = (fac[i - 1] * i) % p;",
-            "    return (fac[n] * modInverse(fac[r], p) % p * modInverse(fac[n - r], p) % p) % p;",
-            "}",
-            "// ================= MATH UTIL ENDS ================== //",
+    // --------------------------Tempate Snippets End----------------------- //
+    // --------------------------Math Snippets Start----------------------- //
+    "Binary Exponential":{
+        "prefix": "binaryExponential",
+        "body":[
+            "int binaryExp(int base, int power){"
+            "    int res = 1;"
+            "    while (power) {"
+            "        if (power & 1)"
+            "            res = (res * base) % mod;"
+            "        base = ((base % mod) * (base % mod)) % mod;"
+            "        power /= 2;"
+            "    }"
+            "    return res;"
+            "}"
             ""
         ],
-        "description": ""
-        }
+        "description": "time complexity O(logn)"
+    },
+    "nCr": {
+        "prefix": "nCr",
+        "body": [
+            "int mod = 1e9 + 7;"
+            "const int MAX = 1e7 + 5;"
+            "vector<int> fact(MAX), ifact(MAX), inv(MAX);"
+            ""
+            "void factorial() {"
+            "    inv[1] = fact[0] = ifact[0] = 1;"
+            "    for (int i = 2; i < MAX; i++)"
+            "        inv[i] = inv[mod % i] * (mod - mod / i) % mod;"
+            "    for (int i = 1; i < MAX; i++)"
+            "        fact[i] = (fact[i - 1] * i) % mod;"
+            "    for (int i = 1; i < MAX; i++)"
+            "        ifact[i] = ifact[i - 1] * inv[i] % mod;"
+            "}"
+            ""
+            "int nCr(int n, int r) {"
+            "    if (r < 0 || r > n)"
+            "        return 0;"
+            "    return (int)fact[n] * ifact[r] % mod * ifact[n - r] % mod;"
+            "}"
+            ""
+        ],
+        "description": "time complexity O(MAX) for precomputation and O(1) for nCr"
+    },
+    "isPrime":{
+        "prefix": "check a number is prime or not",
+        "body":[
+            "bool isPrime(int n) {"
+            "    if (n < 2)"
+            "        return false;"
+            "    if (n <= 3)"
+            "        return true;"
+            "    if (!(n % 2) || !(n % 3))"
+            "        return false;"
+            "    for (int i = 5; i * i <= n; i += 6)"
+            "        if (!(n % i) || !(n % (i + 2)))"
+            "            return false;"
+            "    return true;"
+            "}"
+        ],
+        "description": "time complexity O(sqrt(n))"
+    },
+    "primeFactoralization":{
+        "prefix": "primeFactoralization",
+        "body":[
+            "int factor(int n){"
+            "    if (n%2==0)"
+            "        return 2;"
+            "    for (int a=3; a<=sqrt(n); a++){"
+            "        if (n % a==0)"
+            "            return a;"
+            "    }"
+            "    return n;"
+            "}"
+            "// call the remaining part in main function"
+            "int r;"
+            "while (n>1){"
+            "    r = factor(n);"
+            "    cout << r << \"\" ;"
+            "    n /= r;"
+            "}"
+            ""
+        ],
+        "description": "time complexity O(sqrt(n))"
+    },
+    "nthPrime":{
+        "prefix": "find nth prime number",
+        "body":[
+            "const int MX = 86200005;"
+            "vector<int> nth_prime;"
+            "bitset<MX> visited;"
+            "void optimized_prime() {"
+            "    nth_prime.push_back(2);"
+            "    for (int i = 3; i < MX; i += 2) {"
+            "        if (visited[i])"
+            "            continue;"
+            "        nth_prime.push_back(i);"
+            "        if (1ll * i * i > MX)"
+            "            continue;"
+            "        for (int j = i * i; j < MX; j += i + i)"
+            "            visited[j] = true;"
+            "    }"
+            "}"
+            ""
+        ],
+        "description": "time complexity O(nlog(logn))"
+    },
+    // --------------------------Math Snippets End----------------------- //
+    // ------------------------Data Structure Start---------------------- //
+    "KMP":{
+        "prefix": "KMP algorithm",
+        "body":[
+            "vector<int> createLPS(string pattern) {"
+            "    vector<int> lps(pattern.length());"
+            "    int index = 0;"
+            "    for (int i = 1; i < pattern.length();) {"
+            "        if (pattern[index] == pattern[i]) {"
+            "            lps[i] = index + 1;"
+            "            index++, i++;"
+            "        }"
+            "        else {"
+            "            if (index != 0)"
+            "                index = lps[index - 1];"
+            "            else"
+            "                lps[i] = index, i++;"
+            "        }"
+            "    }"
+            "    return lps;"
+            "}"
+            "int kmp(string text, string pattern) {"
+            "    int cnt_of_match = 0;"
+            "    vector<int> lps = createLPS(pattern);"
+            "    int i = 0, j = 0;"
+            "    // i -> text, j -> pattern"
+            "    while (i < text.length()) {"
+            "        if (text[i] == pattern[j])"
+            "            i++, j++;"
+            "        else {"
+            "            if (j != 0)"
+            "                j = lps[j - 1];"
+            "            else"
+            "                i++;"
+            "        }"
+            "        if (j == pattern.length()) {"
+            "            cnt_of_match++;"
+            "            // the index where match found -> (i - pattern.length());"
+            "            j = lps[j - 1];"
+            "        }"
+            "    }"
+            "    return cnt_of_match;"
+            "}"
+            ""
+        ],
+        "description": "time complexity O(n+m)"
+    },
+    "segmentTree":{
+        "prefix": "segmentTree",
+        "body":[
+            "vector<int> v(2 * 1e5 + 5), seg(4 * 1e5 + 5);"
+            "// index, low, high"
+            "void build(int ti, int low, int high) {"
+            "    if (high == low) {"
+            "        seg[ti] = v[low];"
+            "        return;"
+            "    }"
+            "    int mid = (low + high) / 2;"
+            "    build(2 * ti + 1, low, mid);"
+            "    build(2 * ti + 2, mid + 1, high);"
+            "    seg[ti] = seg[2 * ti + 1] + seg[ti * 2 + 2];"
+            "}"
+            "// index, tree left, tree right, query left, query right"
+            "int findValue(int ti, int tl, int tr, int ql, int qr) {"
+            "    if (tl > qr or tr < ql)"
+            "        return 0;"
+            "    // return 0; (sum, xor)"
+            "    // return INT_MAX;(min)"
+            "    // return INT_MIN;(max)"
+            "    if (tl >= ql and tr <= qr)"
+            "        return seg[ti];"
+            "    int mid = (tl + tr) / 2;"
+            "    int l = findValue(tl, mid, ql, qr, 2 * ti + 1);"
+            "    int r = findValue(mid + 1, tr, ql, qr, 2 * ti + 2);"
+            "    return l + r;"
+            "    // return min(l,r);"
+            "    // return max(l,r);"
+            "}"
+            "// index, low, high, id, value"
+            "void update(int ti, int low, int high, int id, int val) {"
+            "    if (id > high or id < low)"
+            "        return;"
+            "    if (id == high and high == low) {"
+            "        seg[ti] = val;"
+            "        return;"
+            "    }"
+            "    int mid = (low + high) / 2;"
+            "    update(2 * ti + 1, low, mid, id, val);"
+            "    update(2 * ti + 2, mid + 1, high, id, val);"
+            "    seg[ti] = (seg[2 * ti + 1] + seg[ti * 2 + 2]);"
+            "}"
+            ""
+        ],
+        "description": "time complexity build O(n), query O(logn), update O(logn)"
+    },
+    // ------------------------Data Structure End------------------------ //
+    // ---------------------------Graph Start---------------------------- //
+    "Dfs code":{
+        "prefix": "dfs_code",
+        "body":[
+            "map<int,vector<int>> adj;",
+            "map<int,int>visited,parent,level,color;",
+            "",
+            "void dfs(int start)",
+            "{",
+            "\tvisited[start]=1;",
+            "\tfor (auto child : adj[start])",
+            "\t{",
+            "\t\tif (!visited[child])",
+            "\t\t{",
+            "\t\t\tdfs(child);",
+            "\t\t}",
+            "\t}",
+            "\tvisited[start]=2;",
+            "}",
+            "",
+        ],
+        "description": "time complexity O(V+E)"
+    },
+    "BFS code":{
+        "prefix": "bfs_code",
+        "body":[
+            "map<int,vector<int>> adj;",
+            "map<int,int>visited,parent,level,color;",
+            "",
+            "void bfs(int start)",
+            "{",
+            "\tqueue<int> q;",
+            "\tq.push(start);",
+            "\tvisited[start] = 1;",
+            "\twhile (!q.empty())",
+            "\t{",
+            "\t\tint k = q.front();",
+            "\t\tq.pop();",
+            "\t\tfor (auto child : adj[k])",
+            "\t\t{",
+            "\t\t\tif (!visited[child])",
+            "\t\t\t{",
+            "\t\t\t\tq.push(child);",
+            "\t\t\t\tvisited[child] = 1;",
+            "\t\t\t\tvisited[child] = 1;",
+            "\t\t\t\tlevel[child] = level[k] + 1;",
+            "\t\t\t}",
+            "\t\t}",
+            "\t}",
+            "}",
+            "",
+        ],
+        "description": "time complexity O(V+E)"
+    },
 }
