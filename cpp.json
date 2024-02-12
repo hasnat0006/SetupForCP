@@ -26,18 +26,18 @@
 			"",
             "void solve()",
             "{",
-            "\t${2}",
+            "    ${2}",
             "}",
 			"",
             "int32_t main()",
             "{",
-			"\tYUSUF REZA HASNAT;",
-            "\tint t = 1;",
-            "\t${1://}cin >> t;",
-            "\tfor (int i = 1; i <= t; i++){",
-            "\t\tsolve(); ",
-            "\t}",
-            "\treturn 0;",
+			"    YUSUF REZA HASNAT;",
+            "    int t = 1;",
+            "    ${1://}cin >> t;",
+            "    for (int i = 1; i <= t; i++){",
+            "        solve(); ",
+            "    }",
+            "    return 0;",
             "}",
         ],
         "description": "starting template"
@@ -81,16 +81,75 @@
     "Binary Exponential":{
         "prefix": "binaryExponential",
         "body":[
-            "int binaryExp(int base, int power){"
+            "int binaryExp(int base, int power, int MOD = mod) {"
             "    int res = 1;"
             "    while (power) {"
             "        if (power & 1)"
-            "            res = (res * base) % mod;"
-            "        base = ((base % mod) * (base % mod)) % mod;"
+            "            res = (res * base) % MOD;"
+            "        base = ((base % MOD) * (base % MOD)) % MOD;"
             "        power /= 2;"
             "    }"
             "    return res;"
             "}"
+            ""
+        ],
+        "description": "time complexity O(logn)"
+    },
+    "modular addition":{
+        "prefix": "mod_add",
+        "body":[
+            "int mod_add(int a, int b, int MOD = mod) {"
+            "    a = a % MOD, b = b % MOD;"
+            "    return (((a + b) % MOD) + MOD) % MOD;"
+            "}"
+            ""
+        ],
+        "description": "time complexity O(1)"
+    },
+    "modular subtraction":{
+        "prefix": "mod_sub",
+        "body":[
+            "int mod_sub(int a, int b, int MOD = mod) {"
+            "    a = a % MOD, b = b % MOD;"
+            "    return (((a - b) % MOD) + MOD) % MOD;"
+            "}"
+            ""
+        ],
+        "description": "time complexity O(1)"
+    },
+    "modular multipication":{
+        "prefix": "mod_mul",
+        "body":[
+            "int mod_mul(int a, int b, int MOD = mod) {"
+            "    a = a % MOD, b = b % MOD;"
+            "    return (((a * b) % MOD) + MOD) % MOD;"
+            "}"
+            ""
+        ],
+        "description": "time complexity O(1)"
+    },
+    "modular division":{
+        "prefix": "mod_div",
+        "body":[
+            "int binaryExp(int base, int power, int MOD = mod) {"
+            "    int res = 1;"
+            "    while (power) {"
+            "        if (power & 1)"
+            "            res = (res * base) % MOD;"
+            "        base = ((base % MOD) * (base % MOD)) % MOD;"
+            "        power /= 2;"
+            "    }"
+            "    return res;"
+            "}"
+            "int mminvprime(int a, int b) { return binaryExp(a, b - 2, b); }"
+            "int mod_mul(int a, int b, int MOD = mod) {"
+            "    a = a % MOD, b = b % MOD;"
+            "    return (((a * b) % MOD) + MOD) % MOD;"
+            "}"
+            "int mod_div(int a, int b, int MOD = mod) {"
+            "    a = a % MOD, b = b % MOD;"
+            "    return (mod_mul(a, mminvprime(b, MOD), MOD) + MOD) % MOD;"
+            "}  // only for prime MOD"
             ""
         ],
         "description": "time complexity O(logn)"
@@ -285,20 +344,17 @@
     "Dfs code":{
         "prefix": "dfs_code",
         "body":[
-            "map<int,vector<int>> adj;",
-            "map<int,int>visited,parent,level,color;",
+            "map<int, vector<int>> adj;",
+            "map<int, int> visited, parent, level, color;",
             "",
-            "void dfs(int start)",
-            "{",
-            "\tvisited[start]=1;",
-            "\tfor (auto child : adj[start])",
-            "\t{",
-            "\t\tif (!visited[child])",
-            "\t\t{",
-            "\t\t\tdfs(child);",
-            "\t\t}",
-            "\t}",
-            "\tvisited[start]=2;",
+            "void dfs(int start) {",
+            "    visited[start] = 1;",
+            "    for (auto child : adj[start]) {",
+            "        if (!visited[child]) {",
+            "            dfs(child);",
+            "        }",
+            "    }",
+            "    visited[start] = 2;",
             "}",
             "",
         ],
@@ -307,29 +363,25 @@
     "BFS code":{
         "prefix": "bfs_code",
         "body":[
-            "map<int,vector<int>> adj;",
-            "map<int,int>visited,parent,level,color;",
+            "map<int, vector<int>> adj;",
+            "map<int, int> visited, parent, level, color;",
             "",
-            "void bfs(int start)",
-            "{",
-            "\tqueue<int> q;",
-            "\tq.push(start);",
-            "\tvisited[start] = 1;",
-            "\twhile (!q.empty())",
-            "\t{",
-            "\t\tint k = q.front();",
-            "\t\tq.pop();",
-            "\t\tfor (auto child : adj[k])",
-            "\t\t{",
-            "\t\t\tif (!visited[child])",
-            "\t\t\t{",
-            "\t\t\t\tq.push(child);",
-            "\t\t\t\tvisited[child] = 1;",
-            "\t\t\t\tvisited[child] = 1;",
-            "\t\t\t\tlevel[child] = level[k] + 1;",
-            "\t\t\t}",
-            "\t\t}",
-            "\t}",
+            "void bfs(int start) {",
+            "    queue<int> q;",
+            "    q.push(start);",
+            "    visited[start] = 1;",
+            "    while (!q.empty()) {",
+            "        int k = q.front();",
+            "        q.pop();",
+            "        for (auto child : adj[k]) {",
+            "            if (!visited[child]) {",
+            "                q.push(child);",
+            "                visited[child] = 1;",
+            "                visited[child] = 1;",
+            "                level[child] = level[k] + 1;",
+            "            }",
+            "        }",
+            "    }",
             "}",
             "",
         ],
