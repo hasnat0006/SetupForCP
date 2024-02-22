@@ -1,10 +1,12 @@
 {
     // --------------------------Tempate Snippets Start----------------------- //
+    //TODO: Starting Template
     "starting template": {
         "prefix": "cpp",
         "body": [
             "//!-----------------------------------------------------!//",
-            "//!                  YUSUF REZA HASNAT                  !//",
+            "//!              Author: YUSUF REZA HASNAT              !//",
+            "//!             Created: ${CURRENT_DATE}|${CURRENT_MONTH}|${CURRENT_YEAR} ${CURRENT_HOUR}:${CURRENT_MINUTE}:${CURRENT_SECOND}            !//",
             "//!-----------------------------------------------------!//",
             "",
             "#pragma GCC optimize(\"O3\")",
@@ -17,21 +19,16 @@
             "#define vf(v) (v).begin(), (v).end()",
             "#define vr(v) (v).rbegin(), (v).rend()",
             "#define endl \"\\n\"",
-            "#define YUSUF ios_base::sync_with_stdio(false),",
-            "#define REZA  cin.tie(NULL), ",
-            "#define HASNAT cout.tie(NULL)",
             "",
-            "int mod  = 1000000007;",
-            "int inf  = 1e18;",
+            "int mod = 1000000007;",
+            "int inf = 1e18;",
 			"",
-            "void solve()",
-            "{",
-            "    ${2}",
+            "void solve() {",
+            "    ${2:}",,
             "}",
 			"",
-            "int32_t main()",
-            "{",
-			"    YUSUF REZA HASNAT;",
+            "int32_t main() {",
+			"    ios_base::sync_with_stdio(false), cin.tie(NULL), cout.tie(NULL);",
             "    int t = 1;",
             "    ${1://}cin >> t;",
             "    for (int i = 1; i <= t; i++){",
@@ -42,6 +39,7 @@
         ],
         "description": "starting template"
     },
+    //TODO: Debug Template
     "debug": {
         "prefix": "debug",
         "body": [
@@ -54,6 +52,7 @@
         ],
         "description": "debug template"
     },
+    //TODO: File Input Output
     "File Input Output": {
         "prefix": "fileIO",
         "body": [
@@ -62,6 +61,7 @@
         ],
         "description": "file input output"
     },
+    //TODO: Order Set Template
     "order set template":{
         "prefix": "order set template",
         "body":[
@@ -77,7 +77,111 @@
         "description": "find_by_order and order_of_key"
     },
     // --------------------------Tempate Snippets End----------------------- //
-    // --------------------------Math Snippets Start----------------------- //
+    // --------------------------Math Snippets Start------------------------ //
+    //TODO: Check a year is leap year or not
+    "Leap Year":{
+        "prefix": "leapYear",
+        "body":[
+            "bool isLeapYear(int n) {"
+            "    if (n % 100 == 0) {"
+            "        if (n % 400 == 0)"
+            "            return true;"
+            "     	 return false;"
+            "    }"
+            "    if (n % 4 == 0)"
+            "        return true;"
+            "    return false;"
+            "}"
+        ],
+        "description": "time complexity O(1)"
+    },
+    //TODO: Check a number is prime or not
+    "Check prime or not?":{
+        "prefix": "isprime",
+        "body":[
+            "bool isPrime(int n){"
+            "    if (n < 2)"
+            "        return false;"
+            "    if (n <= 3)"
+            "        return true;"
+            "    if (!(n % 2) || !(n % 3))"
+            "        return false;"
+            "    for (int i = 5; i * i <= n; i += 6)"
+            "        if (!(n % i) || !(n % (i + 2))) "
+            "            return false;"
+            "    return true;"
+            "}"
+            ""
+        ],
+        "description": "time complexity O(sqrt(n))"
+    },
+    //TODO: Prime Factoralization
+    "Prime Factoralization":{
+        "prefix": "primeFactoralization",
+        "body":[
+            "// smallest prime factor of a number."
+            "int factors(int n){"
+            "    if (n % 2 == 0)"
+            "        return 2;"
+            "    for (int a = 3; a <= sqrt(n); a++){"
+            "        if (n % a == 0)"
+            "            return a;"
+            "    }"
+            "    return n;"
+            "}"
+            "// complete factorization. call the remaining part in main function"
+            "// here n is the number to be factorized"
+            "while (n>1){"
+            "    int r = factor(n);"
+            "    cout << r;"
+            "    n /= r;"
+            "}"
+        ],
+        "description": "time complexity O(sqrt(n))"
+    },
+    //TODO: Seive of Eratosthenes
+    "Seive of Eratosthenes":{
+        "prefix": "seive",
+        "body":[
+            "int prime[20000005];"
+            "void sieve(int n) {"
+            "    for (int i = 2; i <= n; i++)"
+            "        prime[i] = 1;"
+            "    for (int i = 4; i <= n; i += 2)"
+            "        prime[i] = 0;"
+            "    for (int i = 3; i * i <= n; i++) {"
+            "        if (prime[i]) {"
+            "            for (int j = i * i; j <= n; j += i * 2)"
+            "                prime[j] = 0;"
+            "        }"
+            "    }"
+            "}"
+        ],
+        "description": "time complexity of seive O(nlog(logn)) and space complexity O(n)"
+    },
+    //TODO: Nth Prime Number
+    "Nth Prime Number":{
+        "prefix": "nthPrime",
+        "body":[
+            "const int MX = 86200005;"
+            "vector<int> nth_prime;"
+            "bitset<MX> visited;"
+            "void optimized_prime() {"
+            "    nth_prime.push_back(2);"
+            "    for (int i = 3; i < MX; i += 2) {"
+            "        if (visited[i])"
+            "            continue;"
+            "        nth_prime.push_back(i);"
+            "        if (1ll * i * i > MX)"
+            "            continue;"
+            "        for (int j = i * i; j < MX; j += i + i)"
+            "            visited[j] = true;"
+            "    }"
+            "}"
+        ],
+        "description": "time complexity O(nlog(logn))"
+    },
+    //TODO: Binary Exponential
     "Binary Exponential":{
         "prefix": "binaryExponential",
         "body":[
@@ -95,6 +199,7 @@
         ],
         "description": "time complexity O(logn)"
     },
+    //TODO: Modular addition:
     "modular addition":{
         "prefix": "mod_add",
         "body":[
@@ -106,6 +211,7 @@
         ],
         "description": "time complexity O(1)"
     },
+    //TODO: Modular subtraction
     "modular subtraction":{
         "prefix": "mod_sub",
         "body":[
@@ -117,6 +223,7 @@
         ],
         "description": "time complexity O(1)"
     },
+    //TODO: Modular multipication
     "modular multipication":{
         "prefix": "mod_mul",
         "body":[
@@ -128,6 +235,7 @@
         ],
         "description": "time complexity O(1)"
     },
+    //TODO: Modular division
     "modular division":{
         "prefix": "mod_div",
         "body":[
@@ -154,6 +262,7 @@
         ],
         "description": "time complexity O(logn)"
     },
+    //TODO: nCr
     "nCr": {
         "prefix": "nCr",
         "body": [
@@ -180,71 +289,10 @@
         ],
         "description": "time complexity O(MAX) for precomputation and O(1) for nCr"
     },
-    "isPrime":{
-        "prefix": "check a number is prime or not",
-        "body":[
-            "bool isPrime(int n) {"
-            "    if (n < 2)"
-            "        return false;"
-            "    if (n <= 3)"
-            "        return true;"
-            "    if (!(n % 2) || !(n % 3))"
-            "        return false;"
-            "    for (int i = 5; i * i <= n; i += 6)"
-            "        if (!(n % i) || !(n % (i + 2)))"
-            "            return false;"
-            "    return true;"
-            "}"
-        ],
-        "description": "time complexity O(sqrt(n))"
-    },
-    "primeFactoralization":{
-        "prefix": "primeFactoralization",
-        "body":[
-            "int factor(int n){"
-            "    if (n%2==0)"
-            "        return 2;"
-            "    for (int a=3; a<=sqrt(n); a++){"
-            "        if (n % a==0)"
-            "            return a;"
-            "    }"
-            "    return n;"
-            "}"
-            "// call the remaining part in main function"
-            "int r;"
-            "while (n>1){"
-            "    r = factor(n);"
-            "    cout << r << \"\" ;"
-            "    n /= r;"
-            "}"
-            ""
-        ],
-        "description": "time complexity O(sqrt(n))"
-    },
-    "nthPrime":{
-        "prefix": "find nth prime number",
-        "body":[
-            "const int MX = 86200005;"
-            "vector<int> nth_prime;"
-            "bitset<MX> visited;"
-            "void optimized_prime() {"
-            "    nth_prime.push_back(2);"
-            "    for (int i = 3; i < MX; i += 2) {"
-            "        if (visited[i])"
-            "            continue;"
-            "        nth_prime.push_back(i);"
-            "        if (1ll * i * i > MX)"
-            "            continue;"
-            "        for (int j = i * i; j < MX; j += i + i)"
-            "            visited[j] = true;"
-            "    }"
-            "}"
-            ""
-        ],
-        "description": "time complexity O(nlog(logn))"
-    },
+    
     // --------------------------Math Snippets End----------------------- //
     // ------------------------Data Structure Start---------------------- //
+    //TODO: KMP Algorithm
     "KMP":{
         "prefix": "KMP algorithm",
         "body":[
@@ -291,6 +339,7 @@
         ],
         "description": "time complexity O(n+m)"
     },
+    //TODO: Segment Tree
     "segmentTree":{
         "prefix": "segmentTree",
         "body":[
@@ -341,6 +390,7 @@
     },
     // ------------------------Data Structure End------------------------ //
     // ---------------------------Graph Start---------------------------- //
+    //TODO: DFS code
     "Dfs code":{
         "prefix": "dfs_code",
         "body":[
@@ -360,6 +410,7 @@
         ],
         "description": "time complexity O(V+E)"
     },
+    //TODO: BFS code
     "BFS code":{
         "prefix": "bfs_code",
         "body":[
@@ -387,6 +438,7 @@
         ],
         "description": "time complexity O(V+E)"
     },
+    //TODO: Disjoint Set Union
     "Disjoint Set Union":{
         "prefix": "DSU",
         "body":[

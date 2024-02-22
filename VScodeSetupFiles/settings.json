@@ -1,7 +1,7 @@
 {
   // editor
-  "editor.fontSize": 16,
-  "editor.fontFamily": "JetBrains Mono",
+  "editor.fontSize": 15,
+  "editor.fontFamily": "\"JetBrains Mono\"",
   "editor.fontLigatures": true,
   "editor.wordWrap": "on",
   "editor.minimap.enabled": false,
@@ -32,14 +32,15 @@
   },
   "eslint.alwaysShowStatus": true,
   //terminal
-  "terminal.integrated.fontSize": 16,
+  "terminal.integrated.fontSize": 17,
   "terminal.integrated.fontWeight": "normal",
-  "terminal.integrated.fontFamily": "Fira Code, Operator Mono",
+  // "terminal.integrated.fontFamily": "JetBrains Mono",
+  "terminal.integrated.fontFamily": "Cascade Code",
   "workbench.colorTheme": "Andromeda Bordered",
   "workbench.iconTheme": "vscode-icons",
   // terminal customization
   "workbench.colorCustomizations": {
-    "terminal.background": "#1D2021",
+    "terminal.background": "#0C0C0C",
     "terminal.foreground": "#A89984",
     "terminalCursor.background": "#A89984",
     "terminalCursor.foreground": "#A89984",
@@ -90,7 +91,7 @@
     "markdown": false,
     "scminput": false,
     "cpp": true,
-    "html": false
+    "html": true
   },
   "[css]": {
     "editor.defaultFormatter": "vscode.css-language-features"
