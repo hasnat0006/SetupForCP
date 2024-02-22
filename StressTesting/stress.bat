@@ -7,14 +7,14 @@ rem Define ANSI escape sequences for color
 set "ESC="
 
 rem Define color codes
-set "GREEN=%ESC%[38;2;0;230;0m"        rem Green color
-set "RED=%ESC%[38;2;255;0;0m"          rem Red color
-set "MAGENTA=%ESC%[38;2;190;0;240m"    rem Magenta color
-set "YELLOW=%ESC%[38;2;210;240;0m"     rem Yellow color
-set "BLUE=%ESC%[38;2;0;10;250m"        rem Blue color
-set "CYAN=%ESC%[38;2;0;160;160m"       rem Cyan color
-set "BOLD=%ESC%[1m"                    rem Bold
-set "UNDERLINE=%ESC%[4m"               rem Underline
+set "GREEN=%ESC%[38;2;0;230;0m"         Green   color
+set "RED=%ESC%[38;2;255;0;0m"           Red     color
+set "MAGENTA=%ESC%[38;2;190;0;240m"     Magenta color
+set "YELLOW=%ESC%[38;2;210;240;0m"      Yellow  color
+set "BLUE=%ESC%[38;2;0;10;250m"         Blue    color
+set "CYAN=%ESC%[38;2;0;160;160m"        Cyan    color
+set "BOLD=%ESC%[1m"                     Bold
+set "UNDERLINE=%ESC%[4m"                Underline
 set "RESET=%ESC%[0m"
 
 if [%1]==[] (set /A numLoop = 100) else (set /A numLoop = %1)
