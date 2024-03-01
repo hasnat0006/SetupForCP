@@ -15,20 +15,20 @@
             "using namespace std;",
             "",
             "#define int   long long",
-	    "#define float long double",
+			"#define float long double",
             "#define vf(v) (v).begin(), (v).end()",
             "#define vr(v) (v).rbegin(), (v).rend()",
             "#define endl \"\\n\"",
             "",
             "int mod = 1000000007;",
             "int inf = 1e18;",
-	    "",
+			"",
             "void solve() {",
-            "    ${2:}",,
+            "    ${2:}",
             "}",
-	    "",
+			"",
             "int32_t main() {",
-	    "    ios_base::sync_with_stdio(false), cin.tie(NULL), cout.tie(NULL);",
+			"    ios_base::sync_with_stdio(false), cin.tie(nullptr), cout.tie(nullptr);",
             "    int t = 1;",
             "    ${1://}cin >> t;",
             "    for (int i = 1; i <= t; i++){",
@@ -44,7 +44,7 @@
         "prefix": "debug",
         "body": [
             "#ifndef ONLINE_JUDGE",
-            "#include \"C:\\Users\\Yusuf Reza Hasnat\\OneDrive\\Desktop\\CP\\debug.h\"",
+            "#include \"D:\\Documents\\debug.h\"",
             "#else ",
             "#define dbg(x...)",
             "#define dbgc(x...)",
@@ -56,8 +56,8 @@
     "File Input Output": {
         "prefix": "fileIO",
         "body": [
-            "freopen(\"input.txt\", \"r\", stdin);"
-            "freopen(\"output.txt\", \"w\", stdout);"
+            "freopen(\"input.txt\", \"r\", stdin);",
+            "freopen(\"output.txt\", \"w\", stdout);",
         ],
         "description": "file input output"
     },
@@ -65,14 +65,14 @@
     "order set template":{
         "prefix": "order set template",
         "body":[
-            "#include <ext/pb_ds/assoc_container.hpp>"
-            "#include <ext/pb_ds/tree_policy.hpp>"
-            "using namespace std;"
-            "using namespace __gnu_pbds;"
-            "template <typename T> using o_set = tree<T, null_type, less<T>, rb_tree_tag, tree_order_statistics_node_update>;"
-            "template <typename T> using o_set_g = tree<T, null_type, greater<T>, rb_tree_tag, tree_order_statistics_node_update>;"
-            "template <typename T> using o_multiset = tree<T, null_type, less_equal<T>, rb_tree_tag, tree_order_statistics_node_update>;"
-            "template <typename T> using o_multiset_g = tree<T, null_type, greater_equal<T>, rb_tree_tag, tree_order_statistics_node_update>;"
+            "#include <ext/pb_ds/assoc_container.hpp>",
+            "#include <ext/pb_ds/tree_policy.hpp>",
+            "using namespace std;",
+            "using namespace __gnu_pbds;",
+            "template <typename T> using o_set = tree<T, null_type, less<T>, rb_tree_tag, tree_order_statistics_node_update>;",
+            "template <typename T> using o_set_g = tree<T, null_type, greater<T>, rb_tree_tag, tree_order_statistics_node_update>;",
+            "template <typename T> using o_multiset = tree<T, null_type, less_equal<T>, rb_tree_tag, tree_order_statistics_node_update>;",
+            "template <typename T> using o_multiset_g = tree<T, null_type, greater_equal<T>, rb_tree_tag, tree_order_statistics_node_update>;",
         ],
         "description": "find_by_order and order_of_key"
     },
@@ -82,16 +82,16 @@
     "Leap Year":{
         "prefix": "leapYear",
         "body":[
-            "bool isLeapYear(int n) {"
-            "    if (n % 100 == 0) {"
-            "        if (n % 400 == 0)"
-            "            return true;"
-            "     	 return false;"
-            "    }"
-            "    if (n % 4 == 0)"
-            "        return true;"
-            "    return false;"
-            "}"
+            "bool isLeapYear(int n) {",
+            "    if (n % 100 == 0) {",
+            "        if (n % 400 == 0)",
+            "            return true;",
+            "        return false;",
+            "    }",
+            "    if (n % 4 == 0),",
+            "        return true;",
+            "    return false;",
+            "}",
         ],
         "description": "time complexity O(1)"
     },
@@ -99,19 +99,19 @@
     "Check prime or not?":{
         "prefix": "isprime",
         "body":[
-            "bool isPrime(int n){"
-            "    if (n < 2)"
-            "        return false;"
-            "    if (n <= 3)"
-            "        return true;"
-            "    if (!(n % 2) || !(n % 3))"
-            "        return false;"
-            "    for (int i = 5; i * i <= n; i += 6)"
-            "        if (!(n % i) || !(n % (i + 2))) "
-            "            return false;"
-            "    return true;"
-            "}"
-            ""
+            "bool isPrime(int n){",
+            "    if (n < 2)",
+            "        return false;",
+            "    if (n <= 3)",
+            "        return true;",
+            "    if (!(n % 2) || !(n % 3))",
+            "        return false;",
+            "    for (int i = 5; i * i <= n; i += 6)",
+            "        if (!(n % i) || !(n % (i + 2))) ",
+            "            return false;",
+            "    return true;",
+            "}",
+            "",
         ],
         "description": "time complexity O(sqrt(n))"
     },
@@ -119,23 +119,23 @@
     "Prime Factoralization":{
         "prefix": "primeFactoralization",
         "body":[
-            "// smallest prime factor of a number."
-            "int factors(int n){"
-            "    if (n % 2 == 0)"
-            "        return 2;"
-            "    for (int a = 3; a <= sqrt(n); a++){"
-            "        if (n % a == 0)"
-            "            return a;"
-            "    }"
-            "    return n;"
-            "}"
-            "// complete factorization. call the remaining part in main function"
-            "// here n is the number to be factorized"
-            "while (n>1){"
-            "    int r = factor(n);"
-            "    cout << r;"
-            "    n /= r;"
-            "}"
+            "// smallest prime factor of a number.",
+            "int factors(int n){",
+            "    if (n % 2 == 0)",
+            "        return 2;",
+            "    for (int a = 3; a <= sqrt(n); a++){",
+            "        if (n % a == 0)",
+            "            return a;",
+            "    }",
+            "    return n;",
+            "}",
+            "// complete factorization. call the remaining part in main function",
+            "// here n is the number to be factorized",
+            "while (n>1){",
+            "    int r = factor(n);",
+            "    cout << r;",
+            "    n /= r;",
+            "}",
         ],
         "description": "time complexity O(sqrt(n))"
     },
@@ -143,41 +143,60 @@
     "Seive of Eratosthenes":{
         "prefix": "seive",
         "body":[
-            "int prime[20000005];"
-            "void sieve(int n) {"
-            "    for (int i = 2; i <= n; i++)"
-            "        prime[i] = 1;"
-            "    for (int i = 4; i <= n; i += 2)"
-            "        prime[i] = 0;"
-            "    for (int i = 3; i * i <= n; i++) {"
-            "        if (prime[i]) {"
-            "            for (int j = i * i; j <= n; j += i * 2)"
-            "                prime[j] = 0;"
-            "        }"
-            "    }"
-            "}"
+            "int prime[20000005];",
+            "void sieve(int n) {",
+            "    for (int i = 2; i <= n; i++)",
+            "        prime[i] = 1;",
+            "    for (int i = 4; i <= n; i += 2)",
+            "        prime[i] = 0;",
+            "    for (int i = 3; i * i <= n; i++) {",
+            "        if (prime[i]) {",
+            "            for (int j = i * i; j <= n; j += i * 2)",
+            "                prime[j] = 0;",
+            "        }",
+            "    }",
+            "}",
         ],
         "description": "time complexity of seive O(nlog(logn)) and space complexity O(n)"
+    },
+    //TODO: Smallest Prime Factor Seive
+    "Smallest Prime Factor Seive":{
+        "prefix": "primeFactorSeive",
+        "body":[
+            "int factor[1000005];",
+            "// It will store the smallest prime factor of a number.",
+            "void smallestPrimeFactorSeive(int n) {",
+            "    for (int i = 2; i <= n; i++) {",
+            "        if (factor[i] == 0) {",
+            "            for (int j = i; j <= n; j += i) {",
+            "                if (factor[j] == 0)",
+            "                    factor[j] = i;",
+            "            }",
+            "        }",
+            "    }",
+            "}",
+        ],
+        "description": "time complexity 0(n)"
     },
     //TODO: Nth Prime Number
     "Nth Prime Number":{
         "prefix": "nthPrime",
         "body":[
-            "const int MX = 86200005;"
-            "vector<int> nth_prime;"
-            "bitset<MX> visited;"
-            "void optimized_prime() {"
-            "    nth_prime.push_back(2);"
-            "    for (int i = 3; i < MX; i += 2) {"
-            "        if (visited[i])"
-            "            continue;"
-            "        nth_prime.push_back(i);"
-            "        if (1ll * i * i > MX)"
-            "            continue;"
-            "        for (int j = i * i; j < MX; j += i + i)"
-            "            visited[j] = true;"
-            "    }"
-            "}"
+            "const int MX = 86200005;",
+            "vector<int> nth_prime;",
+            "bitset<MX> visited;",
+            "void optimized_prime() {",
+            "    nth_prime.push_back(2);",
+            "    for (int i = 3; i < MX; i += 2) {",
+            "        if (visited[i])",
+            "            continue;",
+            "        nth_prime.push_back(i);",
+            "        if (1ll * i * i > MX)",
+            "            continue;",
+            "        for (int j = i * i; j < MX; j += i + i)",
+            "            visited[j] = true;",
+            "    }",
+            "}",
         ],
         "description": "time complexity O(nlog(logn))"
     },
@@ -185,17 +204,17 @@
     "Binary Exponential":{
         "prefix": "binaryExponential",
         "body":[
-            "int binaryExp(int base, int power, int MOD = mod) {"
-            "    int res = 1;"
-            "    while (power) {"
-            "        if (power & 1)"
-            "            res = (res * base) % MOD;"
-            "        base = ((base % MOD) * (base % MOD)) % MOD;"
-            "        power /= 2;"
-            "    }"
-            "    return res;"
-            "}"
-            ""
+            "int binaryExp(int base, int power, int MOD = mod) {",
+            "    int res = 1;",
+            "    while (power) {",
+            "        if (power & 1)",
+            "            res = (res * base) % MOD;",
+            "        base = ((base % MOD) * (base % MOD)) % MOD;",
+            "        power /= 2;",
+            "    }",
+            "    return res;",
+            "}",
+            "",
         ],
         "description": "time complexity O(logn)"
     },
@@ -203,11 +222,11 @@
     "modular addition":{
         "prefix": "mod_add",
         "body":[
-            "int mod_add(int a, int b, int MOD = mod) {"
-            "    a = a % MOD, b = b % MOD;"
-            "    return (((a + b) % MOD) + MOD) % MOD;"
-            "}"
-            ""
+            "int mod_add(int a, int b, int MOD = mod) {",
+            "    a = a % MOD, b = b % MOD;",
+            "    return (((a + b) % MOD) + MOD) % MOD;",
+            "}",
+            "",
         ],
         "description": "time complexity O(1)"
     },
@@ -215,11 +234,11 @@
     "modular subtraction":{
         "prefix": "mod_sub",
         "body":[
-            "int mod_sub(int a, int b, int MOD = mod) {"
-            "    a = a % MOD, b = b % MOD;"
-            "    return (((a - b) % MOD) + MOD) % MOD;"
-            "}"
-            ""
+            "int mod_sub(int a, int b, int MOD = mod) {",
+            "    a = a % MOD, b = b % MOD;",
+            "    return (((a - b) % MOD) + MOD) % MOD;",
+            "}",
+            "",
         ],
         "description": "time complexity O(1)"
     },
@@ -227,11 +246,11 @@
     "modular multipication":{
         "prefix": "mod_mul",
         "body":[
-            "int mod_mul(int a, int b, int MOD = mod) {"
-            "    a = a % MOD, b = b % MOD;"
-            "    return (((a * b) % MOD) + MOD) % MOD;"
-            "}"
-            ""
+            "int mod_mul(int a, int b, int MOD = mod) {",
+            "    a = a % MOD, b = b % MOD;",
+            "    return (((a * b) % MOD) + MOD) % MOD;",
+            "}",
+            "",
         ],
         "description": "time complexity O(1)"
     },
@@ -239,26 +258,26 @@
     "modular division":{
         "prefix": "mod_div",
         "body":[
-            "int binaryExp(int base, int power, int MOD = mod) {"
-            "    int res = 1;"
-            "    while (power) {"
-            "        if (power & 1)"
-            "            res = (res * base) % MOD;"
-            "        base = ((base % MOD) * (base % MOD)) % MOD;"
-            "        power /= 2;"
-            "    }"
-            "    return res;"
-            "}"
-            "int mminvprime(int a, int b) { return binaryExp(a, b - 2, b); }"
-            "int mod_mul(int a, int b, int MOD = mod) {"
-            "    a = a % MOD, b = b % MOD;"
-            "    return (((a * b) % MOD) + MOD) % MOD;"
-            "}"
-            "int mod_div(int a, int b, int MOD = mod) {"
-            "    a = a % MOD, b = b % MOD;"
-            "    return (mod_mul(a, mminvprime(b, MOD), MOD) + MOD) % MOD;"
-            "}  // only for prime MOD"
-            ""
+            "int binaryExp(int base, int power, int MOD = mod) {",
+            "    int res = 1;",
+            "    while (power) {",
+            "        if (power & 1)",
+            "            res = (res * base) % MOD;",
+            "        base = ((base % MOD) * (base % MOD)) % MOD;",
+            "        power /= 2;",
+            "    }",
+            "    return res;",
+            "}",
+            "int mminvprime(int a, int b) { return binaryExp(a, b - 2, b); }",
+            "int mod_mul(int a, int b, int MOD = mod) {",
+            "    a = a % MOD, b = b % MOD;",
+            "    return (((a * b) % MOD) + MOD) % MOD;",
+            "}",
+            "int mod_div(int a, int b, int MOD = mod) {",
+            "    a = a % MOD, b = b % MOD;",
+            "    return (mod_mul(a, mminvprime(b, MOD), MOD) + MOD) % MOD;",
+            "}  // only for prime MOD",
+            "",
         ],
         "description": "time complexity O(logn)"
     },
@@ -266,26 +285,26 @@
     "nCr": {
         "prefix": "nCr",
         "body": [
-            "int mod = 1e9 + 7;"
-            "const int MAX = 1e7 + 5;"
-            "vector<int> fact(MAX), ifact(MAX), inv(MAX);"
-            ""
-            "void factorial() {"
-            "    inv[1] = fact[0] = ifact[0] = 1;"
-            "    for (int i = 2; i < MAX; i++)"
-            "        inv[i] = inv[mod % i] * (mod - mod / i) % mod;"
-            "    for (int i = 1; i < MAX; i++)"
-            "        fact[i] = (fact[i - 1] * i) % mod;"
-            "    for (int i = 1; i < MAX; i++)"
-            "        ifact[i] = ifact[i - 1] * inv[i] % mod;"
-            "}"
-            ""
-            "int nCr(int n, int r) {"
-            "    if (r < 0 || r > n)"
-            "        return 0;"
-            "    return (int)fact[n] * ifact[r] % mod * ifact[n - r] % mod;"
-            "}"
-            ""
+            "int mod = 1e9 + 7;",
+            "const int MAX = 1e7 + 5;",
+            "vector<int> fact(MAX), ifact(MAX), inv(MAX);",
+            "",
+            "void factorial() {",
+            "    inv[1] = fact[0] = ifact[0] = 1;",
+            "    for (int i = 2; i < MAX; i++)",
+            "        inv[i] = inv[mod % i] * (mod - mod / i) % mod;",
+            "    for (int i = 1; i < MAX; i++)",
+            "        fact[i] = (fact[i - 1] * i) % mod;",
+            "    for (int i = 1; i < MAX; i++)",
+            "        ifact[i] = ifact[i - 1] * inv[i] % mod;",
+            "}",
+            "",
+            "int nCr(int n, int r) {",
+            "    if (r < 0 || r > n)",
+            "        return 0;",
+            "    return (int)fact[n] * ifact[r] % mod * ifact[n - r] % mod;",
+            "}",
+            "",
         ],
         "description": "time complexity O(MAX) for precomputation and O(1) for nCr"
     },
@@ -296,46 +315,46 @@
     "KMP":{
         "prefix": "KMP algorithm",
         "body":[
-            "vector<int> createLPS(string pattern) {"
-            "    vector<int> lps(pattern.length());"
-            "    int index = 0;"
-            "    for (int i = 1; i < pattern.length();) {"
-            "        if (pattern[index] == pattern[i]) {"
-            "            lps[i] = index + 1;"
-            "            index++, i++;"
-            "        }"
-            "        else {"
-            "            if (index != 0)"
-            "                index = lps[index - 1];"
-            "            else"
-            "                lps[i] = index, i++;"
-            "        }"
-            "    }"
-            "    return lps;"
-            "}"
-            "int kmp(string text, string pattern) {"
-            "    int cnt_of_match = 0;"
-            "    vector<int> lps = createLPS(pattern);"
-            "    int i = 0, j = 0;"
-            "    // i -> text, j -> pattern"
-            "    while (i < text.length()) {"
-            "        if (text[i] == pattern[j])"
-            "            i++, j++;"
-            "        else {"
-            "            if (j != 0)"
-            "                j = lps[j - 1];"
-            "            else"
-            "                i++;"
-            "        }"
-            "        if (j == pattern.length()) {"
-            "            cnt_of_match++;"
-            "            // the index where match found -> (i - pattern.length());"
-            "            j = lps[j - 1];"
-            "        }"
-            "    }"
-            "    return cnt_of_match;"
-            "}"
-            ""
+            "vector<int> createLPS(string pattern) {",
+            "    vector<int> lps(pattern.length());",
+            "    int index = 0;",
+            "    for (int i = 1; i < pattern.length();) {",
+            "        if (pattern[index] == pattern[i]) {",
+            "            lps[i] = index + 1;",
+            "            index++, i++;",
+            "        }",
+            "        else {",
+            "            if (index != 0)",
+            "                index = lps[index - 1];",
+            "            else",
+            "                lps[i] = index, i++;",
+            "        }",
+            "    }",
+            "    return lps;",
+            "}",
+            "int kmp(string text, string pattern) {",
+            "    int cnt_of_match = 0;",
+            "    vector<int> lps = createLPS(pattern);",
+            "    int i = 0, j = 0;",
+            "    // i -> text, j -> pattern",
+            "    while (i < text.length()) {",
+            "        if (text[i] == pattern[j])",
+            "            i++, j++;",
+            "        else {",
+            "            if (j != 0)",
+            "                j = lps[j - 1];",
+            "            else",
+            "                i++;",
+            "        }",
+            "        if (j == pattern.length()) {",
+            "            cnt_of_match++;",
+            "            // the index where match found -> (i - pattern.length());",
+            "            j = lps[j - 1];",
+            "        }",
+            "    }",
+            "    return cnt_of_match;",
+            "}",
+            "",
         ],
         "description": "time complexity O(n+m)"
     },
@@ -343,48 +362,48 @@
     "segmentTree":{
         "prefix": "segmentTree",
         "body":[
-            "vector<int> v(2 * 1e5 + 5), seg(4 * 1e5 + 5);"
-            "// index, low, high"
-            "void build(int ti, int low, int high) {"
-            "    if (high == low) {"
-            "        seg[ti] = v[low];"
-            "        return;"
-            "    }"
-            "    int mid = (low + high) / 2;"
-            "    build(2 * ti + 1, low, mid);"
-            "    build(2 * ti + 2, mid + 1, high);"
-            "    seg[ti] = seg[2 * ti + 1] + seg[ti * 2 + 2];"
-            "}"
-            "// index, tree left, tree right, query left, query right"
-            "int findValue(int ti, int tl, int tr, int ql, int qr) {"
-            "    if (tl > qr or tr < ql)"
-            "        return 0;"
-            "    // return 0; (sum, xor)"
-            "    // return INT_MAX;(min)"
-            "    // return INT_MIN;(max)"
-            "    if (tl >= ql and tr <= qr)"
-            "        return seg[ti];"
-            "    int mid = (tl + tr) / 2;"
-            "    int l = findValue(tl, mid, ql, qr, 2 * ti + 1);"
-            "    int r = findValue(mid + 1, tr, ql, qr, 2 * ti + 2);"
-            "    return l + r;"
-            "    // return min(l,r);"
-            "    // return max(l,r);"
-            "}"
-            "// index, low, high, id, value"
-            "void update(int ti, int low, int high, int id, int val) {"
-            "    if (id > high or id < low)"
-            "        return;"
-            "    if (id == high and high == low) {"
-            "        seg[ti] = val;"
-            "        return;"
-            "    }"
-            "    int mid = (low + high) / 2;"
-            "    update(2 * ti + 1, low, mid, id, val);"
-            "    update(2 * ti + 2, mid + 1, high, id, val);"
-            "    seg[ti] = (seg[2 * ti + 1] + seg[ti * 2 + 2]);"
-            "}"
-            ""
+            "vector<int> v(2 * 1e5 + 5), seg(4 * 1e5 + 5);",
+            "// index, low, high",
+            "void build(int ti, int low, int high) {",
+            "    if (high == low) {",
+            "        seg[ti] = v[low];",
+            "        return;",
+            "    }",
+            "    int mid = (low + high) / 2;",
+            "    build(2 * ti + 1, low, mid);",
+            "    build(2 * ti + 2, mid + 1, high);",
+            "    seg[ti] = seg[2 * ti + 1] + seg[ti * 2 + 2];",
+            "}",
+            "// index, tree left, tree right, query left, query right",
+            "int findValue(int ti, int tl, int tr, int ql, int qr) {",
+            "    if (tl > qr or tr < ql)",
+            "        return 0;",
+            "    // return 0; (sum, xor)",
+            "    // return INT_MAX;(min)",
+            "    // return INT_MIN;(max)",
+            "    if (tl >= ql and tr <= qr)",
+            "        return seg[ti];",
+            "    int mid = (tl + tr) / 2;",
+            "    int l = findValue(tl, mid, ql, qr, 2 * ti + 1);",
+            "    int r = findValue(mid + 1, tr, ql, qr, 2 * ti + 2);",
+            "    return l + r;",
+            "    // return min(l,r);",
+            "    // return max(l,r);",
+            "}",
+            "// index, low, high, id, value",
+            "void update(int ti, int low, int high, int id, int val) {",
+            "    if (id > high or id < low)",
+            "        return;",
+            "    if (id == high and high == low) {",
+            "        seg[ti] = val;",
+            "        return;",
+            "    }",
+            "    int mid = (low + high) / 2;",
+            "    update(2 * ti + 1, low, mid, id, val);",
+            "    update(2 * ti + 2, mid + 1, high, id, val);",
+            "    seg[ti] = (seg[2 * ti + 1] + seg[ti * 2 + 2]);",
+            "}",
+            "",
         ],
         "description": "time complexity build O(n), query O(logn), update O(logn)"
     },
@@ -442,41 +461,40 @@
     "Disjoint Set Union":{
         "prefix": "DSU",
         "body":[
-            "class DisjointSet {"
-            "    vector<int> parent, size, minElement, maxElement, cntElement;"
-            
-            "   public:"
-            "    DisjointSet(int n) {"
-            "        parent.resize(n + 1);"
-            "        size.resize(n + 1, 1);"
-            "        minElement.resize(n + 1);"
-            "        maxElement.resize(n + 1);"
-            "        cntElement.resize(n + 1, 1);"
-            "        for (int i = 1; i <= n; i++)"
-            "            parent[i] = minElement[i] = maxElement[i] = i;"
-            "    }"
-            "    int findUPar(int u) {"
-            "        if (u == parent[u])"
-            "            return u;"
-            "        return parent[u] = findUPar(parent[u]);"
-            "    }"
-            "    void unionBySize(int u, int v) {"
-            "        int pU = findUPar(u);"
-            "        int pV = findUPar(v);"
-            "        if (pU == pV)"
-            "            return;"
-            "        if(size[pU] < size[pV])"
-            "            swap(pU, pV);"
-            "        parent[pV] = pU;"
-            "        size[pU] += size[pV];"
-            "        cntElement[pU] += cntElement[pV];"
-            "        minElement[pU] = min(minElement[pU], minElement[pV]);"
-            "        maxElement[pU] = max(maxElement[pU], maxElement[pV]);"
-            "    }"
-            "    int getMinElementIntheSet(int u) { return minElement[findUPar(u)]; }"
-            "    int getMaxElementIntheSet(int u) { return maxElement[findUPar(u)]; }"
-            "    int getNumofElementIntheSet(int u) { return cntElement[findUPar(u)]; }"
-            "};" 
+            "class DisjointSet {",
+            "    vector<int> parent, size, minElement, maxElement, cntElement;",
+            "   public:",
+            "    DisjointSet(int n) {",
+            "        parent.resize(n + 1);",
+            "        size.resize(n + 1, 1);",
+            "        minElement.resize(n + 1);",
+            "        maxElement.resize(n + 1);",
+            "        cntElement.resize(n + 1, 1);",
+            "        for (int i = 1; i <= n; i++)",
+            "            parent[i] = minElement[i] = maxElement[i] = i;",
+            "    }",
+            "    int findUPar(int u) {",
+            "        if (u == parent[u])",
+            "            return u;",
+            "        return parent[u] = findUPar(parent[u]);",
+            "    }",
+            "    void unionBySize(int u, int v) {",
+            "        int pU = findUPar(u);",
+            "        int pV = findUPar(v);",
+            "        if (pU == pV)",
+            "            return;",
+            "        if(size[pU] < size[pV])",
+            "            swap(pU, pV);",
+            "        parent[pV] = pU;",
+            "        size[pU] += size[pV];",
+            "        cntElement[pU] += cntElement[pV];",
+            "        minElement[pU] = min(minElement[pU], minElement[pV]);",
+            "        maxElement[pU] = max(maxElement[pU], maxElement[pV]);",
+            "    }",
+            "    int getMinElementIntheSet(int u) { return minElement[findUPar(u)]; }",
+            "    int getMaxElementIntheSet(int u) { return maxElement[findUPar(u)]; }",
+            "    int getNumofElementIntheSet(int u) { return cntElement[findUPar(u)]; }",
+            "};" ,
         ],
         "description": "time complexity O(logn) or O(1)"
     },
