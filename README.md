@@ -5,10 +5,11 @@ A simple script which stress tests our solution with a brute force solution on r
 Clone this repository using git or download manually.<br>
 For cloning the repository open your terminal and type `git clone https://github.com/hasnat0006/SetupForCP.git`
 
-After cloning the repository, you can see 3 cpp files and 1 bat file.
+After cloning the repository, you can see 3 cpp files and 1 bat file in StreeTesting directory.
 1. **brute.cpp** (for brute force solution)
 2. **solution.cpp** (for optimized solution)
 3. **gen.cpp** (for generating test cases)
+4. **stress.bat** (for testing our code)
 
 ### How to generate test cases
 To generate test cases, we can use the gen.cpp file. We just edit this `generate_test()` function as per our requirement.<br>
