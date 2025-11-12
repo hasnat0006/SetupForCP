@@ -1,0 +1,216 @@
+{
+    "starting template": {
+        "prefix": "cpp",
+        "body": [
+            "#pragma GCC optimize(\"O3\")",
+            "#include<bits/stdc++.h>",
+            "",
+            "using namespace std;",
+            "",
+            "#define ll   long long",
+            "#define vf(v) (v).begin(), (v).end()",
+            "#define vr(v) (v).rbegin(), (v).rend()",
+            "",
+            "const ll mod = 1e9 + 7;",
+            "const ll inf = 1e18;",
+            "",
+            "void solve() {",
+            "    ${2:}",
+            "}",
+            "",
+            "int32_t main() {",
+            "    ios_base::sync_with_stdio(false), cin.tie(nullptr), cout.tie(nullptr);",
+            "    ll t = 1;",
+            "    ${1://}cin >> t;",
+            "    for (ll i = 1; i <= t; i++) {",
+            "        // cout << \"Case \" << i << \": \";",
+            "        solve(); ",
+            "    }",
+            "    return 0;",
+            "}"
+        ],
+        "description": "starting template"
+    },
+    "debug": {
+        "prefix": "debug",
+        "body": [
+            "#ifndef ONLINE_JUDGE",
+            "#include \"debug.cpp\"",
+            "#else ",
+            "#define dbg(x...)",
+            "#define dbgc(x...)",
+            "#endif"
+        ],
+        "description": "debug template"
+    },
+    "File Input Output": {
+        "prefix": "fileIO",
+        "body": [
+            "freopen(\"input.txt\", \"r\", stdin);",
+            "freopen(\"output.txt\", \"w\", stdout);"
+        ],
+        "description": "file input output"
+    },
+    "order set template": {
+        "prefix": "order set template",
+        "body": [
+            "#include <ext/pb_ds/assoc_container.hpp>",
+            "#include <ext/pb_ds/tree_policy.hpp>",
+            "using namespace __gnu_pbds;",
+            "template <typename T> using o_set = tree<T, null_type, less<T>, rb_tree_tag, tree_order_statistics_node_update>;"
+        ],
+        "description": "find_by_order and order_of_key"
+    },
+    "Binary Exponential": {
+        "prefix": "binaryExponential",
+        "body": [
+            "ll binaryExp(ll base, ll power, ll MOD = mod) {",
+            "    ll res = 1;",
+            "    while (power) {",
+            "        if (power & 1)",
+            "            res = (res * base) % MOD;",
+            "        base = ((base % MOD) * (base % MOD)) % MOD;",
+            "        power /= 2;",
+            "    }",
+            "    return res;",
+            "}",
+            ""
+        ],
+        "description": "time complexity O(logn)"
+    },
+    "GP Hash Table": {
+        "prefix": "gpHashTable",
+        "body": [
+            "#include <ext/pb_ds/assoc_container.hpp>",
+            "#include <ext/pb_ds/tree_policy.hpp>",
+            "using namespace __gnu_pbds;",
+            "template <typename p, typename q>",
+            "using ht = gp_hash_table<p, q>;"
+        ],
+        "description": "gp_hash_table and gp_hash_multiset"
+    },
+    "modular addition": {
+        "prefix": "mod_add",
+        "body": [
+            "ll mod_add(ll a, ll b, ll MOD = mod) {",
+            "    a = a % MOD, b = b % MOD;",
+            "    return (((a + b) % MOD) + MOD) % MOD;",
+            "}",
+            ""
+        ],
+        "description": "time complexity O(1)"
+    },
+    "modular subtraction": {
+        "prefix": "mod_sub",
+        "body": [
+            "ll mod_sub(ll a, ll b, ll MOD = mod) {",
+            "    a = a % MOD, b = b % MOD;",
+            "    return (((a - b) % MOD) + MOD) % MOD;",
+            "}",
+            ""
+        ],
+        "description": "time complexity O(1)"
+    },
+    "modular multipication": {
+        "prefix": "mod_mul",
+        "body": [
+            "ll mod_mul(ll a, ll b, ll MOD = mod) {",
+            "    a = a % MOD, b = b % MOD;",
+            "    return (((a * b) % MOD) + MOD) % MOD;",
+            "}",
+            ""
+        ],
+        "description": "time complexity O(1)"
+    },
+    "modular division": {
+        "prefix": "mod_div",
+        "body": [
+            "ll binaryExp(ll base, ll power, ll MOD = mod) {",
+            "    ll res = 1;",
+            "    while (power) {",
+            "        if (power & 1)",
+            "            res = (res * base) % MOD;",
+            "        base = ((base % MOD) * (base % MOD)) % MOD;",
+            "        power /= 2;",
+            "    }",
+            "    return res;",
+            "}",
+            "ll mminvprime(ll a, ll b) { return binaryExp(a, b - 2, b); }",
+            "ll mod_mul(ll a, ll b, ll MOD = mod) {",
+            "    a = a % MOD, b = b % MOD;",
+            "    return (((a * b) % MOD) + MOD) % MOD;",
+            "}",
+            "ll mod_div(ll a, ll b, ll MOD = mod) {",
+            "    a = a % MOD, b = b % MOD;",
+            "    return (mod_mul(a, mminvprime(b, MOD), MOD) + MOD) % MOD;",
+            "}  // only for prime MOD",
+            ""
+        ],
+        "description": "time complexity O(logn)"
+    },
+    "String hasing": {
+        "prefix": "Hash String",
+        "body": [
+            "ll binaryExp(ll base, ll power, ll MOD = mod) {",
+            "    ll res = 1;",
+            "    while (power) {",
+            "        if (power & 1)",
+            "            res = (res * base) % MOD;",
+            "        base = ((base % MOD) * (base % MOD)) % MOD;",
+            "        power /= 2;",
+            "    }",
+            "    return res;",
+            "}",
+            "",
+            "const ll N = 2e5 + 5;",
+            "const ll MOD1 = 127657753, MOD2 = 987654319;",
+            "const ll p1 = 137, p2 = 277;",
+            "ll ip1, ip2;",
+            "pair<ll, ll> pw[N], ipw[N];",
+            "",
+            "void prec() {",
+            "    pw[0] = {1, 1};",
+            "    for (ll i = 1; i < N; i++) {",
+            "        pw[i].first = 1LL * pw[i - 1].first * p1 % MOD1;",
+            "        pw[i].second = 1LL * pw[i - 1].second * p2 % MOD2;",
+            "    }",
+            "    ip1 = binaryExp(p1, MOD1 - 2, MOD1);",
+            "    ip2 = binaryExp(p2, MOD2 - 2, MOD2);",
+            "    ipw[0] = {1, 1};",
+            "    for (ll i = 1; i < N; i++) {",
+            "        ipw[i].first = 1LL * ipw[i - 1].first * ip1 % MOD1;",
+            "        ipw[i].second = 1LL * ipw[i - 1].second * ip2 % MOD2;",
+            "    }",
+            "}",
+            "struct Hashing {",
+            "    ll n;",
+            "    string s;                 // 0 - indexed",
+            "    vector<pair<ll, ll>> hs;  // 1 - indexed",
+            "    Hashing() {}",
+            "    Hashing(string _s) {",
+            "        n = _s.size();",
+            "        s = _s;",
+            "        hs.emplace_back(0, 0);",
+            "        for (ll i = 0; i < n; i++) {",
+            "            pair<ll, ll> p;",
+            "            p.first = (hs[i].first + 1LL * pw[i].first * s[i] % MOD1) % MOD1;",
+            "            p.second = (hs[i].second + 1LL * pw[i].second * s[i] % MOD2) % MOD2;",
+            "            hs.push_back(p);",
+            "        }",
+            "    }",
+            "    pair<ll, ll> get_hash(ll l, ll r) {",
+            "        // 1 - indexed",
+            "        assert(1 <= l && l <= r && r <= n);",
+            "        pair<ll, ll> ans;",
+            "        ans.first = (hs[r].first - hs[l - 1].first + MOD1) * 1LL *",
+            "                    ipw[l - 1].first % MOD1;",
+            "        ans.second = (hs[r].second - hs[l - 1].second + MOD2) * 1LL *",
+            "                     ipw[l - 1].second % MOD2;",
+            "        return ans;",
+            "    }",
+            "    pair<ll, ll> get_hash() { return get_hash(1, n); }",
+            "};"
+        ],
+        "description": ""
+    }
+}

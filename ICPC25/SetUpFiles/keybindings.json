@@ -1,0 +1,170 @@
+[
+    {
+        "key": "ctrl+f",
+        "command": "extension.CompileRunInExternalTerminal",
+        "when": "editorLangId == 'c' || editorLangId == 'cc' || editorLangId == 'cpp'"
+    },
+    {
+        "key": "f8",
+        "command": "-extension.CompileRunInExternalTerminal",
+        "when": "editorLangId == 'c' || editorLangId == 'cc' || editorLangId == 'cpp'"
+    },
+    {
+        "key": "f9",
+        "command": "code-runner.run"
+    },
+    {
+        "key": "ctrl+alt+n",
+        "command": "-code-runner.run"
+    },
+    {
+        "key": "ctrl+c",
+        "command": "editor.action.clipboardCopyAction"
+    },
+    {
+        "key": "ctrl+insert",
+        "command": "-editor.action.clipboardCopyAction"
+    },
+    {
+        "key": "ctrl+a",
+        "command": "-extension.vim_ctrl+a",
+        "when": "editorTextFocus && vim.active && vim.use<C-a> && !inDebugRepl"
+    },
+    {
+        "key": "ctrl+c",
+        "command": "-extension.vim_ctrl+c",
+        "when": "editorTextFocus && vim.active && vim.overrideCtrlC && vim.use<C-c> && !inDebugRepl"
+    },
+    {
+        "key": "ctrl+v",
+        "command": "-extension.vim_ctrl+v",
+        "when": "editorTextFocus && vim.active && vim.use<C-v> && !inDebugRepl"
+    },
+    {
+        "key": "ctrl+d",
+        "command": "-extension.vim_ctrl+d",
+        "when": "editorTextFocus && vim.active && vim.use<C-d> && !inDebugRepl"
+    },
+    {
+        "key": "ctrl+d",
+        "command": "-list.focusPageDown",
+        "when": "listFocus && !inputFocus"
+    },
+    {
+        "key": "ctrl+z",
+        "command": "-extension.vim_ctrl+z",
+        "when": "editorTextFocus && vim.active && vim.use<C-z> && !inDebugRepl"
+    },
+    {
+        "key": "backspace",
+        "command": "-extension.vim_backspace",
+        "when": "editorTextFocus && vim.active && !inDebugRepl"
+    },
+    {
+        "key": "ctrl+t",
+        "command": "-workbench.action.showAllSymbols"
+    },
+    {
+        "key": "ctrl+t",
+        "command": "-extension.vim_ctrl+t",
+        "when": "editorTextFocus && vim.active && vim.use<C-t> && !inDebugRepl"
+    },
+    {
+        "key": "ctrl+t",
+        "command": "workbench.action.terminal.new",
+        "when": "terminalProcessSupported || terminalWebExtensionContributedProfile"
+    },
+    {
+        "key": "ctrl+shift+oem_3",
+        "command": "-workbench.action.terminal.new",
+        "when": "terminalProcessSupported || terminalWebExtensionContributedProfile"
+    },
+    {
+        "key": "ctrl+shift+d",
+        "command": "workbench.view.debug",
+        "when": "viewContainer.workbench.view.debug.enabled"
+    },
+    {
+        "key": "ctrl+shift+d",
+        "command": "-workbench.view.debug",
+        "when": "viewContainer.workbench.view.debug.enabled"
+    },
+    {
+        "key": "ctrl+d",
+        "command": "editor.action.addSelectionToNextFindMatch",
+        "when": "editorFocus"
+    },
+    {
+        "key": "ctrl+d",
+        "command": "-editor.action.addSelectionToNextFindMatch",
+        "when": "editorFocus"
+    },
+    {
+        "key": "f9",
+        "command": "-editor.debug.action.toggleBreakpoint",
+        "when": "debuggersAvailable && disassemblyViewFocus || debuggersAvailable && editorTextFocus"
+    },
+    {
+        "key": "f1",
+        "command": "cph.runTestCases"
+    },
+    {
+        "key": "ctrl+alt+b",
+        "command": "-cph.runTestCases"
+    },
+    {
+        "key": "ctrl+f5",
+        "command": "extension.Debug",
+        "when": "editorLangId == 'c' || editorLangId == 'cc' || editorLangId == 'cpp'"
+    },
+    {
+        "key": "ctrl+f5",
+        "command": "workbench.action.debug.continue",
+        "when": "debugState == 'stopped'"
+    },
+    {
+        "key": "ctrl+f5",
+        "command": "workbench.action.debug.start",
+        "when": "debuggersAvailable && debugState == 'inactive'"
+    },
+    {
+        "key": "ctrl+f5",
+        "command": "debug.openView",
+        "when": "!debuggersAvailable"
+    },
+    {
+        "key": "f5",
+        "command": "workbench.action.terminal.sendSequence",
+        "args": {
+            "text": "g++ ${fileBasenameNoExtension}.cpp -o ${fileBasenameNoExtension} && ./${fileBasenameNoExtension} < in.txt > out.txt\n"
+        }
+    },
+    {
+        "key": "f6",
+        "command": "workbench.action.terminal.sendSequence",
+        "args": {
+            "text": "./Scripts/runtests.sh \"${fileDirname}\" \"${fileBasenameNoExtension}\"\n"
+        }
+    },
+    {
+        "key": "f4",
+        "command": "runCommands",
+        "args": {
+            "commands": [
+                "workbench.action.terminal.focus",
+                "workbench.action.terminal.clear",
+                {
+                    "command": "workbench.action.terminal.sendSequence",
+                    "args": {
+                        "text": "./Scripts/add_test_cases.sh \"${fileDirname}\" \"${fileBasenameNoExtension}\"\n"
+                    }
+                }
+            ]
+        }
+    },
+    {
+        "key": "shift+alt+f",
+        "command": "editor.action.formatDocument",
+        "when": "editorHasDocumentFormattingProvider && editorTextFocus && !editorReadonly"
+    }
+]
