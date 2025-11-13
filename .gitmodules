@@ -1,0 +1,3 @@
+[submodule "ICPC25/others"]
+	path = ICPC25/others
+	url = https://github.com/istiaqueahmedarik/cp-code-templates-other
