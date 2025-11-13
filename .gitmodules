@@ -1,3 +1,9 @@
 [submodule "ICPC25/others"]
 	path = ICPC25/others
 	url = https://github.com/istiaqueahmedarik/cp-code-templates-other
+[submodule "ICPC25/shohag"]
+	path = ICPC25/shohag
+	url = https://github.com/ShahjalalShohag/code-library
+[submodule "ICPC25/ykw"]
+	path = ICPC25/ykw
+	url = https://github.com/ShahjalalShohag/code-library
